@@ -32,14 +32,14 @@ export default async function LocaleLayout({
   return (
     <html className="h-full" lang={locale}>
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7ZR17H7XR"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6YS476EMT"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', 'G-R7ZR17H7XR');
+                  gtag('config', 'G-P6YS476EMT');
                   `,
           }}
         />
