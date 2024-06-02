@@ -3,18 +3,18 @@ import Link from "next/link";
 
 const navigation = {
   product: [
-    {name: 'SoraWebui', href: 'https://sorawebui.com'}
+    { name: 'Airegex', href: 'https://airegex.cn' }
   ],
   legal: [
-    {name: 'Privacy Policy', href: '/privacy-policy'},
-    {name: 'Terms & Conditions', href: '/terms-of-service'},
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms & Conditions', href: '/terms-of-service' },
   ]
 }
 
 export default function Footer({
-                                 locale = '',
-                                 description = ''
-                               }) {
+  locale = '',
+  description = ''
+}) {
   return (
     <footer className="bg-[#020d24]" aria-labelledby="footer-heading">
       <div id="footer-heading" className="sr-only">
@@ -26,9 +26,9 @@ export default function Footer({
             <a href={`/${locale}`}>
               <Image
                 className="h-10"
-                src="/appicon.svg"
-                width={32}
-                height={32}
+                src="/frayer-log.svg"
+                width={64}
+                height={64}
                 alt="Sorawebui.com"
               />
             </a>
@@ -56,16 +56,16 @@ export default function Footer({
                 <div className="text-sm font-semibold leading-6 text-white">Product</div>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.product.map((item) => {
-                      return (
-                        <li key={item.name}>
-                          <Link href={`${item.href}`}
-                                target={"_blank"}
-                                className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
-                            {item.name}
-                          </Link>
-                        </li>
-                      )
-                    }
+                    return (
+                      <li key={item.name}>
+                        <Link href={`${item.href}`}
+                          target={"_blank"}
+                          className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                          {item.name}
+                        </Link>
+                      </li>
+                    )
+                  }
                   )}
                 </ul>
               </div>
@@ -73,19 +73,19 @@ export default function Footer({
                 <div className="text-sm font-semibold leading-6 text-white">Legal</div>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => {
-                      let hrefTo = `/${locale}${item.href}`;
-                      if (locale == 'en') {
-                        hrefTo = `${item.href}`;
-                      }
-                      return (
-                        <li key={item.name}>
-                          <Link href={`${hrefTo}`}
-                                className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
-                            {item.name}
-                          </Link>
-                        </li>
-                      )
+                    let hrefTo = `/${locale}${item.href}`;
+                    if (locale == 'en') {
+                      hrefTo = `${item.href}`;
                     }
+                    return (
+                      <li key={item.name}>
+                        <Link href={`${hrefTo}`}
+                          className="text-sm leading-6 text-gray-300 hover:text-[#2d6ae0]">
+                          {item.name}
+                        </Link>
+                      </li>
+                    )
+                  }
                   )}
                 </ul>
               </div>

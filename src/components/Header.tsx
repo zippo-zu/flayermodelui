@@ -1,28 +1,27 @@
 'use client'
-import {useState} from 'react'
-import {Dialog} from '@headlessui/react'
-import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
-import {GlobeAltIcon} from '@heroicons/react/24/outline'
-import {Fragment} from 'react'
-import {Menu, Transition} from '@headlessui/react'
-import {ChevronDownIcon} from '@heroicons/react/20/solid'
+import { useState } from 'react'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { GlobeAltIcon } from '@heroicons/react/24/outline'
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Link from "next/link";
-import {languages} from "~/config";
-import {useCommonContext} from '~/context/common-context'
+import { languages } from "~/config";
+import { useCommonContext } from '~/context/common-context'
 import LoadingModal from "./LoadingModal";
 import Image from "next/image";
 import GeneratingModal from "~/components/GeneratingModal";
 
 const navigation = {
   topMenu: [
-    {name: 'Playground', href: '/playground'},
-    {name: 'Works', href: '/works'},
-    {name: 'Videos', href: '/videos'},
+    { name: 'FrayerModel', href: '/' },
+    { name: 'Templates', href: '/frayermodeltemplates' },
   ],
   social: [
     {
       name: 'GitHub',
-      href: 'https://github.com/SoraWebui/SoraWebui',
+      href: 'https://github.com/zippo-zu/invoceiToExcel-web',
       icon: (props) => (
         <svg fill="#fff" viewBox="0 0 24 24" {...props}>
           <path
@@ -37,13 +36,13 @@ const navigation = {
 }
 
 export default function Header({
-                                 locale = '',
-                                 page = '',
-                                 indexLanguageText
-                               }) {
+  locale = '',
+  page = '',
+  indexLanguageText
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const {setShowGeneratingModal} = useCommonContext();
-  const {setShowLoadingModal} = useCommonContext();
+  const { setShowGeneratingModal } = useCommonContext();
+  const { setShowLoadingModal } = useCommonContext();
 
   const checkLocalAndLoading = (lang) => {
     if (locale != lang) {
@@ -53,20 +52,18 @@ export default function Header({
 
   return (
     <header className="sticky top-0 bg-[#020d24] z-20 w-full">
-      <LoadingModal loadingText={indexLanguageText.loadingText}/>
-      <GeneratingModal generatingText={indexLanguageText.generateText}/>
+      <LoadingModal loadingText={indexLanguageText.loadingText} />
+      <GeneratingModal generatingText={indexLanguageText.generateText} />
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href={`/${locale}`} className="-m-1.5 p-1.5" onClick={() => setShowLoadingModal(true)}>
-            <Image className="h-8 w-auto" src="/appicon.svg" alt="sorawebui.com" width={32} height={32}/>
-          </a>
+
           <a href={`/${locale}`} className="-m-1.5 ml-0.5 p-1.5" onClick={() => setShowLoadingModal(true)}>
             <Image
-              className="h-8 w-auto"
-              src="/sorawebui.svg"
-              width={32}
-              height={24}
-              alt="sorawebui.com"/>
+              src="/frayer-log.svg"
+              width={64}
+              height={64}
+              alt="frayermodeltemplate.com" />
+
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -76,7 +73,7 @@ export default function Header({
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -94,7 +91,7 @@ export default function Header({
           {navigation.social.map((item) => (
             <a key={item.name} href={item.href} className="text-gray-500 hover:text-gray-400">
               <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true"/>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}
         </div>
@@ -102,8 +99,8 @@ export default function Header({
           <div>
             <Menu.Button
               className="inline-flex w-full justify-center gap-x-1.5 border border-[rgba(255,255,255,0.5)] rounded-md px-3 py-2 text-sm font-semibold text-white hover:border-[rgba(255,255,255,0.9)]">
-              <GlobeAltIcon className="w-5 h-5 text-white"/>{locale == 'default' ? 'EN' : locale.toUpperCase()}
-              <ChevronDownIcon className="-mr-1 h-5 w-5 text-white" aria-hidden="true"/>
+              <GlobeAltIcon className="w-5 h-5 text-white" />{locale == 'default' ? 'EN' : locale.toUpperCase()}
+              <ChevronDownIcon className="-mr-1 h-5 w-5 text-white" aria-hidden="true" />
             </Menu.Button>
           </div>
           <Transition
@@ -127,11 +124,11 @@ export default function Header({
                     return (
                       <Menu.Item key={item.lang}>
                         <Link href={hrefValue} onClick={() => checkLocalAndLoading(item.lang)}>
-                              <span
-                                className={'text-gray-700 block px-4 py-2 text-sm hover:text-[#2d6ae0]'}
-                              >
-                                {item.language}
-                              </span>
+                          <span
+                            className={'text-gray-700 block px-4 py-2 text-sm hover:text-[#2d6ae0]'}
+                          >
+                            {item.language}
+                          </span>
                         </Link>
                       </Menu.Item>
                     )
@@ -143,12 +140,12 @@ export default function Header({
         </Menu>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-10"/>
+        <div className="fixed inset-0 z-10" />
         <Dialog.Panel
           className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href={`/${locale}`} className="-m-1.5 p-1.5" onClick={() => setShowLoadingModal(true)}>
-              <Image className="h-8 w-auto" src="/appicon.svg" alt="sorawebui.com" width={32} height={32}/>
+              <Image className="h-8 w-auto" src="/appicon.svg" alt="sorawebui.com" width={32} height={32} />
             </a>
             <a href={`/${locale}`} className="-m-1.5 ml-0.5 p-1.5" onClick={() => setShowLoadingModal(true)}>
               <Image
@@ -156,7 +153,7 @@ export default function Header({
                 src="/sorawebui.svg"
                 width={32}
                 height={24}
-                alt="sorawebui.com"/>
+                alt="sorawebui.com" />
             </a>
             <button
               type="button"
@@ -164,7 +161,7 @@ export default function Header({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">

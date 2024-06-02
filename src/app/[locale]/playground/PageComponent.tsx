@@ -1,78 +1,34 @@
 'use client'
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import {useState} from "react";
+import { useState } from "react";
 import HeadInfo from "~/components/HeadInfo";
-import {useCommonContext} from "~/context/common-context";
-import {useInterval} from "ahooks";
+import { useCommonContext } from "~/context/common-context";
+import { useInterval } from "ahooks";
 import Link from "next/link";
 
 const PageComponent = ({
-                         locale = '',
-                         indexLanguageText,
-                         playgroundText
-                       }) => {
+  locale = '',
+  indexLanguageText,
+  playgroundText
+}) => {
   const router = useRouter();
 
   const [textStr, setTextStr] = useState('');
-  const {setShowGeneratingModal, setShowLoadingModal} = useCommonContext();
+  const { setShowGeneratingModal, setShowLoadingModal } = useCommonContext();
 
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    setChooseAPI('FakeSora');
-    if (!textStr) {
-      return;
-    }
-    setShowGeneratingModal(true);
-    const body = {
-      prompt: textStr
-    };
-    const response = await fetch(`/${locale}/api/generate`, {
-      method: 'POST',
-      body: JSON.stringify(body)
-    })
-    const result = await response.json();
-    setShowGeneratingModal(false);
-    if (result.data) {
-      if (!result.data[0].revised_prompt) {
-        return
-      }
-      const video = {
-        revised_prompt: result.data[0].revised_prompt,
-        url: result.data[0].url
-      }
-      setVideo(video);
-      localStorage.setItem('video', JSON.stringify(video));
+  const handleDownload = () => {
+    console.log("111")
+    const downloadUrl = 'https://gofile.io/d/zSn009';
+    window.open(downloadUrl, '_blank');
+  }
+  const handleSubmit = () => {
 
-      // add storage
-      const videoHistoryListStr = localStorage.getItem('videoHistoryList');
-      if (!videoHistoryListStr) {
-        const videoHistoryList = [];
-        videoHistoryList.unshift(video);
-        localStorage.setItem('videoHistoryList', JSON.stringify(videoHistoryList));
-      } else {
-        const videoHistoryList = JSON.parse(videoHistoryListStr);
-        // check exist
-        let exist = false;
-        for (let i = 0; i < videoHistoryList.length; i++) {
-          const videoHistory = videoHistoryList[i];
-          if (videoHistory.revised_prompt == video.revised_prompt) {
-            exist = true;
-            return;
-          }
-        }
-        if (!exist) {
-          videoHistoryList.unshift(video);
-          // const newList = videoHistoryList.slice(0, 3);
-          localStorage.setItem('videoHistoryList', JSON.stringify(videoHistoryList));
-        }
-      }
-    }
   }
 
-  const [video, setVideo] = useState({revised_prompt: '', url: ''});
+  const [video, setVideo] = useState({ revised_prompt: '', url: '' });
 
   const [intervalLocalStorage, setIntervalLocalStorage] = useState(500);
 
@@ -94,10 +50,10 @@ const PageComponent = ({
         locale={locale}
         page={"/playground"}
       />
-      <Header locale={locale} page={"playground"} indexLanguageText={indexLanguageText}/>
+      <Header locale={locale} page={"playground"} indexLanguageText={indexLanguageText} />
       <div className={"my-auto"}>
         <div className="block overflow-hidden bg-[#020d24] bg-cover bg-center text-white"
-             style={{backgroundImage: 'https://assets.website-files.com/6502af467b2a8c4ee8159a5b/6502af467b2a8c4ee8159a77_Group%2047929.svg'}}>
+          style={{ backgroundImage: 'https://assets.website-files.com/6502af467b2a8c4ee8159a5b/6502af467b2a8c4ee8159a77_Group%2047929.svg' }}>
           <div className="mx-auto w-full max-w-7xl px-5 mb-5">
             <div
               className="mx-auto flex max-w-4xl flex-col items-center text-center py-10">
@@ -125,7 +81,7 @@ const PageComponent = ({
                       maxLength={1000}
                     />
                   </div>
-                  <div className="flex justify-center items-center space-x-3 px-2 py-2 bg-white text-black">
+                  {/* <div className="flex justify-center items-center space-x-3 px-2 py-2 bg-white text-black">
                     <span
                       className={`cursor-pointer p-2 rounded-lg mx-0.5 flex items-center mt-1 border ${chooseAPI == 'FakeSora' ? 'border-[#ffa11b]' : 'border-gray-200'}`}
                       onClick={() => setChooseAPI('FakeSora')}
@@ -138,8 +94,8 @@ const PageComponent = ({
                     >
                       <span>Sora</span>
                     </span>
-                  </div>
-                  {
+                  </div> */}
+                  {/* {
                     chooseAPI == 'FakeSora' ?
                       <div className="flex justify-center items-center space-x-3 px-2 bg-white text-red-400">
                         {indexLanguageText.fakeSoraTip}
@@ -151,13 +107,13 @@ const PageComponent = ({
                         </div>
                         :
                         null
-                  }
+                  } */}
                   <div className="inset-x-px bottom-1 bg-white">
                     <div
                       className="flex justify-center items-center space-x-3 border-t border-gray-200 px-2 py-2">
                       <div className="pt-2 w-1/4">
                         <button
-                          type="submit"
+                          onClick={handleDownload}
                           className="w-full inline-flex justify-center items-center rounded-md bg-[#2d6ae0] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800"
                         >
                           {indexLanguageText.buttonText}
@@ -195,7 +151,7 @@ const PageComponent = ({
             }
             <div key={"more"} className={"px-6 py-4"}>
               <Link href={`/${locale}/works`}
-                    className={"flex justify-center items-center text-xl text-red-400 hover:text-blue-600"}>
+                className={"flex justify-center items-center text-xl text-red-400 hover:text-blue-600"}>
                 {playgroundText.moreWorks} {'>>'}
               </Link>
             </div>

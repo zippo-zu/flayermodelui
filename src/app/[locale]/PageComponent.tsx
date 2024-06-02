@@ -1,23 +1,26 @@
 'use client'
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import {useState} from "react";
-import {randomVideo} from "~/data/openaiVideo";
+import { useState } from "react";
+import { randomVideo } from "~/data/openaiVideo";
 import HeadInfo from "~/components/HeadInfo";
-import {useCommonContext} from "~/context/common-context";
+import { useCommonContext } from "~/context/common-context";
 import Link from "next/link";
+import FrayerModel from "~/components/FrayerModel";
+import { allVideoList } from "~/data/frayerModelTemplate";
+
 
 const PageComponent = ({
-                         locale = '',
-                         indexLanguageText,
-                         initVideoList = [],
-                         questionText
-                       }) => {
+  locale = '',
+  indexLanguageText,
+  initVideoList = [],
+  questionText
+}) => {
   const router = useRouter();
 
   const [textStr, setTextStr] = useState('');
-  const {setShowGeneratingModal, setShowLoadingModal} = useCommonContext();
+  const { setShowGeneratingModal, setShowLoadingModal } = useCommonContext();
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -96,10 +99,10 @@ const PageComponent = ({
         locale={locale}
         page={""}
       />
-      <Header locale={locale} indexLanguageText={indexLanguageText}/>
+      <Header locale={locale} indexLanguageText={indexLanguageText} />
       <div>
         <div className="block overflow-hidden bg-[#020d24] bg-cover bg-center text-white"
-             style={{backgroundImage: 'https://assets.website-files.com/6502af467b2a8c4ee8159a5b/6502af467b2a8c4ee8159a77_Group%2047929.svg'}}>
+          style={{ backgroundImage: 'https://assets.website-files.com/6502af467b2a8c4ee8159a5b/6502af467b2a8c4ee8159a77_Group%2047929.svg' }}>
           <div className="mx-auto w-full max-w-7xl px-5 mb-5">
             <div
               className="mx-auto flex max-w-4xl flex-col items-center text-center py-10">
@@ -107,109 +110,38 @@ const PageComponent = ({
               <div className="mb-5 max-w-[528px] lg:mb-8">
                 <p className="text-[#7c8aaa] text-xl">{indexLanguageText.pDescription}</p>
               </div>
-              <a
+              {/* <a
                 href="https://www.producthunt.com/posts/sorawebui?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-sorawebui"
                 target="_blank"><img
-                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=440945&theme=light"
-                alt="SoraWebui - Open&#0045;source&#0032;Sora&#0032;Web&#0032;Client | Product Hunt"
-              /></a>
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=440945&theme=light"
+                  alt="SoraWebui - Open&#0045;source&#0032;Sora&#0032;Web&#0032;Client | Product Hunt"
+                /></a> */}
             </div>
-            <div>
-              <div
-                className={"w-[90%] mx-auto rounded-tl-[30px] rounded-tr-[30px] border-[12px] border-[#ffffff1f] object-fill"}>
-                <form onSubmit={handleSubmit} className="relative shadow-lg">
-                  <div
-                    className="overflow-hidden focus-within:ring-1 focus-within:ring-indigo-500 rounded-tl-[20px] rounded-tr-[20px]">
-                    <textarea
-                      rows={8}
-                      name="description"
-                      id="description"
-                      className="block w-full resize-none border-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-lg pt-4 pl-4"
-                      placeholder={indexLanguageText.placeholderText}
-                      value={textStr}
-                      onChange={(e) => {
-                        setTextStr(e.target.value);
-                      }}
-                      maxLength={1000}
-                    />
-                  </div>
-                  <div className="flex justify-center items-center space-x-3 px-2 py-2 bg-white text-black">
-                    <span
-                      className={`cursor-pointer p-2 rounded-lg mx-0.5 flex items-center mt-1 border ${chooseAPI == 'FakeSora' ? 'border-[#ffa11b]' : 'border-gray-200'}`}
-                      onClick={() => setChooseAPI('FakeSora')}
-                    >
-                      <span>FakeSora</span>
-                    </span>
-                    <span
-                      className={`cursor-pointer p-2 rounded-lg mx-0.5 flex items-center mt-1 border ${chooseAPI == 'Sora' ? 'border-[#ffa11b]' : 'border-gray-200'}`}
-                      onClick={() => setChooseAPI('Sora')}
-                    >
-                      <span>Sora</span>
-                    </span>
-                  </div>
-                  {
-                    chooseAPI == 'FakeSora' ?
-                      <div className="flex justify-center items-center space-x-3 px-2 bg-white text-red-400">
-                        {indexLanguageText.fakeSoraTip}
-                      </div>
-                      :
-                      chooseAPI == 'Sora' ?
-                        <div className="flex justify-center items-center space-x-3 px-2 bg-white text-red-400">
-                          {indexLanguageText.soraTip}
-                        </div>
-                        :
-                        null
-                  }
-                  <div className="inset-x-px bottom-1 bg-white">
-                    <div
-                      className="flex justify-center items-center space-x-3 border-t border-gray-200 px-2 py-2">
-                      <div className="pt-2 w-1/4">
-                        <button
-                          type="submit"
-                          className="w-full inline-flex justify-center items-center rounded-md bg-[#2d6ae0] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800"
-                        >
-                          {indexLanguageText.buttonText}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
             <div className={"border-[14px] border-[#ffffff1f] object-fill w-[90%] mx-auto mt-8"}>
-              <div className={"mx-auto bg-white"}>
+              <div className={"mx-auto"}>
                 <div className={"pb-2 border-b-2"}>
                   <h2
-                    className={"text-blue-500 pt-4 text-4xl flex justify-center items-center"}>{indexLanguageText.soraVideoExample}</h2>
+                    className={"text-blue-500 pt-4 text-4xl flex justify-center items-center mb-4"}>{indexLanguageText.soraVideoExample}</h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-6 py-4">
-                  {videoList.map((file) => (
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+
+                  {allVideoList.map((file) => (
                     <div key={file.prompt}>
                       <div
                         className="rounded-xl flex justify-center items-start">
-                        <video
-                          src={file.videoUrl}
-                          controls={true}
-                          autoPlay={false}
-                          playsInline={true}
-                          preload={"metadata"}
-                          controlsList={"nodownload"}
-                          onMouseOver={handleMouseEnter}
-                          onMouseLeave={handleMouseLeave}
-                          style={{width: '90%', height: '270px'}}
+                        <FrayerModel Concept={file.Concept} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
+                          noExamples={file.NonExamples}
                         />
                       </div>
-                      <div className={"flex justify-center items-center"}>
-                        <p
-                          className="pointer-events-none mt-2 block text-sm font-medium text-gray-500 w-[90%]">{indexLanguageText.prompt}: {file.prompt}</p>
-                      </div>
+
                     </div>
                   ))}
+
+
                 </div>
                 <div key={"more"} className={"px-6 py-4"}>
-                  <Link href={`/${locale}/videos`}
-                        className={"flex justify-center items-center text-xl text-red-400 hover:text-blue-600"}>
+                  <Link href={`/${locale}/frayermodeltemplates`}
+                    className={"flex justify-center items-center text-xl text-red-400 hover:text-blue-600"}>
                     {indexLanguageText.moreExample} {'>>'}
                   </Link>
                 </div>
@@ -232,8 +164,7 @@ const PageComponent = ({
                   <p>
                     {questionText.h2_1_p3}
                   </p>
-                  <p>{questionText.h2_1_p4}<Link
-                    href={"https://openai.com/sora"} className={"text-blue-500"}>https://openai.com/sora</Link>.</p>
+                  <p>{questionText.h2_1_p4}</p>
                 </div>
               </div>
             </div>
@@ -255,10 +186,10 @@ const PageComponent = ({
                     {questionText.h2_2_p3}
                   </p>
                   <p>
-                    {questionText.h2_2_p4a}<Link href={"https://sorawebui.com/"}
-                                                 className={"text-blue-500"}>https://sorawebui.com/</Link>{questionText.h2_2_p4b}<Link
-                    href={"https://github.com/SoraWebui/SoraWebui"}
-                    className={"text-blue-500"}>https://github.com/SoraWebui/SoraWebui</Link>.
+                    {questionText.h2_2_p4a}
+                  </p>
+                  <p>
+                    {questionText.h2_2_p4b}
                   </p>
                 </div>
               </div>
@@ -271,6 +202,9 @@ const PageComponent = ({
         locale={locale}
         description={indexLanguageText.description}
       />
+
+
+
     </>
   )
 
