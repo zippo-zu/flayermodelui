@@ -33,7 +33,7 @@ export default function Footer({
               />
             </a>
             <p className="text-sm text-gray-300">
-              {description}
+              {/* {description} */}
             </p>
           </div>
           <div className="mt-2 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
