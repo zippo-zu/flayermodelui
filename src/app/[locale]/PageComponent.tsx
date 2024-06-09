@@ -129,7 +129,7 @@ const PageComponent = ({
                     <div key={file.prompt}>
                       <div
                         className="rounded-xl flex justify-center items-start">
-                        <FrayerModel Concept={file.Concept} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
+                        <FrayerModel fileName={file.fileName} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
                           noExamples={file.NonExamples}
                         />
                       </div>
@@ -154,41 +154,41 @@ const PageComponent = ({
                   <h2
                     className={"text-blue-500 pt-4 text-4xl flex justify-center items-center"}>{questionText.h2_1}</h2>
                 </div>
-                <div className={"w-[96%] text-gray-700 prose mx-auto mt-4"}>
-                  <p>
+                <div className={"w-[60%] text-gray-700 prose mx-auto mt-4"}>
+                  <p className="mt-5 leading-loose">
                     {questionText.h2_1_p1}
                   </p>
-                  <p>
+                  <p className="mt-5 leading-loose">
                     {questionText.h2_1_p2}
                   </p>
-                  <p>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_1_p3}
                   </p>
-                  <p>{questionText.h2_1_p4}</p>
+                  <p className="mt-5 leading-loose">{questionText.h2_1_p4}</p>
                 </div>
               </div>
             </div>
 
             <div className={"border-[14px] border-[#ffffff1f] object-fill w-[90%] mx-auto mt-8"}>
-              <div className={"mx-auto bg-white py-8"}>
+              <div className={"mx-auto bg-white py-7"}>
                 <div className={"pb-2 border-b-2"}>
                   <h2
                     className={"text-blue-500 pt-4 text-4xl flex justify-center items-center"}>{questionText.h2_2}</h2>
                 </div>
-                <div className={"w-[96%] text-gray-700 prose mx-auto mt-4"}>
-                  <p>
+                <div className={"w-[60%] text-gray-700 prose mx-auto mt-4"}>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_2_p1}
                   </p>
-                  <p>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_2_p2}
                   </p>
-                  <p>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_2_p3}
                   </p>
-                  <p>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_2_p4a}
                   </p>
-                  <p>
+                  <p className="=mt-5 leading-loose">
                     {questionText.h2_2_p4b}
                   </p>
                 </div>

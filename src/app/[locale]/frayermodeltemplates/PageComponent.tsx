@@ -41,7 +41,7 @@ const PageComponent = ({
             <div key={file.prompt}>
               <div
                 className="rounded-xl flex justify-center items-start">
-                <FrayerModel Concept={file.Concept} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
+                <FrayerModel fileName={file.fileName} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
                   noExamples={file.NonExamples}
                 />
               </div>

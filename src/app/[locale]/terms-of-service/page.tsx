@@ -10,12 +10,14 @@ export default async function PageContent({params: {locale = ''}}) {
   const termsOfServiceLanguageText = await getTermsOfServiceLanguageText();
 
   return (
+    <div className='mt-6 my-auto'>
     <PageComponent
       locale={locale}
       termsOfServiceLanguageText={termsOfServiceLanguageText}
       indexLanguageText={indexLanguageText}
     >
     </PageComponent>
+    </div>
   )
 
 }

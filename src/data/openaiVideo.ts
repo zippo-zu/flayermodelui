@@ -1,5 +1,6 @@
 export const allVideoList = [
   {
+    "fileName":"FrayerModel_1.pdf",
     "number": "a1",
     "prompt": "AI的弗雷模型图",
     "Concept": "AI",
@@ -9,6 +10,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples of AI would be traditional software applications that perform specific tasks without learning or adapting, such as a calculator or a simple word processor."
   },
   {
+    "fileName":"FrayerModel_2.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "NBC News",
@@ -18,6 +20,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples of NBC News would be other news organizations or divisions, such as CNN, BBC News, or local news stations that are not affiliated with NBC."
   },
   {
+    "fileName":"FrayerModel_3.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Eminem - Houdini",
@@ -27,6 +30,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples would be other songs by Eminem or songs by different artists that do not share the same theme or style as 'Houdini'."
   },
   {
+    "fileName":"FrayerModel_4.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Alan Jackson",
@@ -36,6 +40,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples would be other country artists with different styles or musicians from other genres who do not share Alan Jackson's musical approach."
   },
   {
+    "fileName":"FrayerModel_5.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Dell Stock",
@@ -45,6 +50,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples would be stocks of other companies not related to Dell Technologies, such as Apple, Microsoft, or any non-technology sector stocks."
   },
   {
+    "fileName":"FrayerModel_6.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Janitor AI",
@@ -54,6 +60,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples of Janitor AI would be AI applications that are designed for complex decision-making, creative tasks, or direct human interaction, such as AI chatbots or autonomous vehicle systems."
   },
   {
+    "fileName":"FrayerModel_6.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Viggle AI",
@@ -63,6 +70,7 @@ export const allVideoList = [
     "NonExamples": "Non-examples of Viggle AI would be AI systems that do not focus on user engagement or personalization, such as industrial automation systems or autonomous vehicle control systems."
   },
   {
+    "fileName":"FrayerModel_6.pdf",
     "number": "a1",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Crushon AI",

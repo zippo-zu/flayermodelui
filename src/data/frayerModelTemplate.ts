@@ -1,5 +1,6 @@
 export const allVideoList = [
     {
+        "fileName":"FrayerModel_1.pdf",
         "number": "a1",
         "prompt": "Frayer Model Template",
         "Concept": "Frayer Model Template",
@@ -9,6 +10,8 @@ export const allVideoList = [
         "NonExamples": "Non-examples of using the Frayer Model Template would be any situation where a different method of concept explanation is used, such as a simple definition without the structured breakdown into characteristics, examples, and non-examples, or a visual diagram without textual explanation."
     },
     {
+        "fileName":"FrayerModel_2.pdf",
+
         "number": "a1",
         "prompt": "弗雷模型图",
         "Concept": "Frayer模型模板",
@@ -17,6 +20,8 @@ export const allVideoList = [
         "Examples": "使用Frayer模型模板的一个例子可以是解释'光合作用'的概念。定义部分会解释植物如何将阳光转化为能量的过程，特征部分会列出必要的组成部分，如阳光、水和二氧化碳，例子部分可以包括叶子中的光合作用过程，非例子部分可能是细胞呼吸等过程。",
         "NonExamples": "非使用Frayer模型模板的例子将是任何使用不同概念解释方法的情况，例如没有结构化分解为特征、例子和非例子的简单定义，或者没有文本解释的视觉图表。"
     }, {
+        "fileName":"FrayerModel_3.pdf",
+
         "number": "a1",
         "prompt": "AIのフライヤーモデル図",
         "Concept": "Frayerモデルテンプレート",
@@ -26,6 +31,7 @@ export const allVideoList = [
         "NonExamples": "Frayerモデルテンプレートを使用しない例としては、異なる概念説明方法を使用する状況が挙げられます。例えば、特徴、例、非例の構造化された分解がない単純な定義、またはテキスト説明がない視覚図です。"
     },
     {
+        "fileName":"FrayerModel_4.pdf",
         "number": "a1",
         "prompt": "AI의 프레이어 모델 그림",
         "Concept": "Frayer 모델 템플릿",

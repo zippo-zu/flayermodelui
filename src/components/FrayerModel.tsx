@@ -5,7 +5,25 @@
  */
 import { Button } from ".//ui/button"
 
-export default function Component({ Concept, Definition, Characteristics, Examples, noExamples }) {
+export default function Component({ fileName, Definition, Characteristics, Examples, noExamples }) {
+
+    const downloadFile = async () => {
+            // 调用下载 API 
+            const response = await fetch(`/zh/api/r2download?fileName=${fileName}`)
+            
+            // 获取文件 Blob
+            const blob = await response.blob()
+            
+            // 生成临时 URL
+            const fileURL = window.URL.createObjectURL(blob) 
+            
+            // 触发下载
+            let anchor = document.createElement('a')
+            anchor.href = fileURL
+            anchor.download = fileName;
+            anchor.click()
+
+      };
     return (
         <div className="flex flex-col items-center justify-center  bg-gray-100 dark:bg-gray-900">
             <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 w-full max-w-3xl">
@@ -33,7 +51,7 @@ export default function Component({ Concept, Definition, Characteristics, Exampl
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Autumn Foliage</h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-4">A breathtaking display of autumn colors.</p>
-                <Button size="sm" className="w-full">
+                <Button  onClick={downloadFile} size="sm" className="w-full">
                     Download
                 </Button>
             </div>
