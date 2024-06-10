@@ -1,62 +1,65 @@
-# SoraWebui
-SoraWebui 是一个开源项目，允许用户使用 OpenAI 的 Sora 模型使用文本在线生成视频，从而简化视频创建，并具有轻松的一键网站部署功能。
-👉 [SoraWebui](https://sorawebui.com)
+# Frayer Model Template 
+Frayermodel 是一个基于 AI 动态生成frayer model template的项目，目的是为了更好的帮助老师和学生用 frayer model 思维模型，学习记忆英语词汇或者某一个特定领域的专业术语和概念。并且收集了，互联网上常见的 frayer model template pdf 格式的模板，提供给用户一键下载。
+# Frayer model 
+Frayer Model 是一种教育工具，由 Dorothy Frayer 及其同事在1969年开发。它主要用于帮助学生深入理解复杂词汇的含义和结构。Frayer Model 通过一个四宫格图形组织器来实现这一目标，通常包括以下四个部分：
+
+定义（Definition）：提供所关注词汇的清晰定义。
+属性/特征（Characteristics/Attributes）：列出该词汇的关键属性或特征。
+例子（Examples）：给出该词汇的具体例子。
+非例子（Non-examples）：提供不属于该词汇范畴的例子，帮助澄清概念的界限。
+Frayer Model 通过视觉和图形化的方式展示信息，有助于加深学生对词汇的理解和记忆。它不仅适用于词汇教学，还可以用于分析和探究特定主题或概念。此外，Frayer Model 可以促进学生的批判性思维，帮助他们通过不同的维度与词汇建立联系，并在教学中用于激活先前知识、监控阅读过程等。
+👉 [FrayerModelTemplate](https://www.frayermodeltemplate.com/)
 
 [English](https://github.com/SoraWebui/SoraWebui/blob/main/README.md) | 简体中文 | [日本語](https://github.com/SoraWebui/SoraWebui/blob/main/README.ja-JP.md)
 
 # 项目计划
-- ✅ 通过文字生成视频（使用[FakeSoraAPI](https://github.com/SoraWebui/FakeSoraAPI)）:
+- ✅ 提供不同风格样式的frayer model template pdf 下载:
 
-  您可以在 👉 [main](https://github.com/SoraWebui/SoraWebui/tree/main) 或 👉 [version-0.1](https://github.com/SoraWebui/SoraWebui/tree/version-0.1) 中体验该功能
-
-- ✅ 使用谷歌登录:
-
-  您可以在 👉 [login](https://github.com/SoraWebui/SoraWebui/tree/login) 或 👉 [version-0.2](https://github.com/SoraWebui/SoraWebui/tree/version-0.2) 中体验该功能
-
-- ✅ Google 一键登录:
-
-  您可以在 👉 [login](https://github.com/SoraWebui/SoraWebui/tree/login) 或 👉 [version-0.3](https://github.com/SoraWebui/SoraWebui/tree/version-0.3) 中体验该功能
+- ✅ 收集各种不用风格的frayer model template 列别:
 
 - [ ] Stripe支付：
+- [ ] Google 一键登录:
+ 
 
   即将推出
 
-- [ ] 添加 OpenAI 的 Sora API：
+- [ ] 基于 AI 的智能生成 frayerModel Template 的功能：
+- [ ] 基于AI 生成小学、初中教育阶段的 frayer model 记忆卡片
+- [ ] 基于某些特定领域智能生成该领域的专业术语和概念的 frayer model 卡片
+- [ ] 分享自己制作的 frayer model 卡片 并支持打印出来
+- [ ] 收藏别人的frayer model 卡片 
 
-  等待 OpenAI 开放 Sora 的 API，随后我们就会推出该功能.
+
 
 
 ## 快速开始
 
 ### 在 Vercel 上部署
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSoraWebui%2FSoraWebui&project-name=SoraWebui&repository-name=SoraWebui&external-id=https%3A%2F%2Fgithub.com%2FSoraWebui%2FSoraWebui%2Ftree%2Fmain)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?https://github.com/zippo-zu/flayermodelui)
 
 ### 1. 克隆项目
 
 ```bash
-git clone git@github.com:SoraWebui/SoraWebui.git
+git clone git@github.com:zippo-zu/flayermodelui.git
 ```
 
 ### 2. 安装依赖
 
 ```bash
-cd SoraWebui && yarn
+cd flayermodelui && yarn
 #or
-cd SoraWebui && npm install
+cd flayermodelui && npm install
 #or
-cd SoraWebui && pnpm install
+cd flayermodelui && pnpm install
 ```
 
 ### 3. 复制 .env.example 并将其重命名为 .env.local
 
 ```bash
-# website URL
-NEXT_PUBLIC_SITE_URL=http://localhost
-
-# openai config
-OPENAI_API_KEY=sk-XXXXXX
-OPENAI_API_BASE_URL=http://localhost:8081
-OPENAI_API_MODEL=sora-1.0-turbo
+R2_ACCESS_KEY_ID= 
+R2_SECRET_ACCESS_KEY=
+R2_BUCKET_NAME=
+R2_ACCOUNT_ID=
 ```
 
 ### 4. 运行
@@ -70,12 +73,8 @@ pnpm dev
 ```
 
 ### 4. 在浏览器打开 [http://localhost](http://localhost)
-![success_deploy.jpg](https://sorawebui.com/success_deploy.jpg)
+![success_deploy.jpg](https://frayermodeltemplate.com/frayerproject.png)
 
 
 # 重要事项
-SoraWebui 需要 [FakeSoraAPI](https://github.com/SoraWebui/FakeSoraAPI) 才能正常运行。
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=SoraWebui/SoraWebui&type=Date)](https://star-history.com/#SoraWebui/SoraWebui&Date)
+FrayerModelTemplate 需要依赖 cloudflare 的对象存储服务 R2。
