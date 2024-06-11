@@ -26,22 +26,22 @@ const PageComponent = ({
           <h1 className="text-3xl font-extrabold pb-6 text-white">
             {privacyPolicyLanguageText.h1}
           </h1>
-          <p>{privacyPolicyLanguageText.date}</p>
-          <p>{privacyPolicyLanguageText.desc}</p>
+          <p className='mt-2'>{privacyPolicyLanguageText.date}</p>
+          <p  className='mt-4'>{privacyPolicyLanguageText.desc}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_1}</h4>
-          <p>{privacyPolicyLanguageText.h4_1_pa}</p>
-          <p>{privacyPolicyLanguageText.h4_1_pb}</p>
+          <p className='mt-3'>{privacyPolicyLanguageText.h4_1_pa}</p>
+          <p  className='mt-3'>{privacyPolicyLanguageText.h4_1_pb}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_2}</h4>
-          <p>{privacyPolicyLanguageText.h4_2_p}</p>
+          <p  className='mt-3'>{privacyPolicyLanguageText.h4_2_p}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_3}</h4>
-          <p>{privacyPolicyLanguageText.h4_3_p}</p>
+          <p  className='mt-3'>{privacyPolicyLanguageText.h4_3_p}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_4}</h4>
-          <p>{privacyPolicyLanguageText.h4_4_p}</p>
+          <p  className='mt-3'>{privacyPolicyLanguageText.h4_4_p}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_5}</h4>
-          <p>{privacyPolicyLanguageText.h4_5_p}</p>
+          <p  className='mt-3'>{privacyPolicyLanguageText.h4_5_p}</p>
           <h4 className={"text-white font-bold"}>{privacyPolicyLanguageText.h4_6}</h4>
-          <p>
-            {privacyPolicyLanguageText.h4_6_p}{" "}<a href="mailto:hi@sorawebui.com" className={"text-white"}>hi@sorawebui.com</a>.
+          <p  className='mt-3'>
+            {privacyPolicyLanguageText.h4_6_p}{" "}<a href="mailto:hi@frayermodeltemplate.com" className={"text-white"}>hi@frayermodeltemplate.com</a>.
           </p>
         </div>
       </main>
