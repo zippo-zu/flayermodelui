@@ -3,7 +3,8 @@ import Link from "next/link";
 
 const navigation = {
   product: [
-    { name: 'Airegex', href: 'https://airegex.cn' }
+    { name: 'Airegex', href: 'https://airegex.cn' },
+    { name: 'xbt', href: 'https://5xbt.org/' }
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy-policy' },

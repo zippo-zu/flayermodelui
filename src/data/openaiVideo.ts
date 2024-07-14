@@ -1,7 +1,7 @@
 export const allVideoList = [
   {
     "fileName":"FrayerModel_1.pdf",
-    "number": "a1",
+    "number": "1",
     "prompt": "AI的弗雷模型图",
     "Concept": "AI",
     "Definition": "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
@@ -11,7 +11,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_2.pdf",
-    "number": "a1",
+    "number": "2",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "NBC News",
     "Definition": "NBC News is the news division of the American broadcast network NBC, providing television programming and online content related to current events, politics, business, technology, entertainment, and more.",
@@ -21,7 +21,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_3.pdf",
-    "number": "a1",
+    "number": "3",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Eminem - Houdini",
     "Definition": "Houdini is a song by American rapper Eminem, featuring Skylar Grey, from his ninth studio album 'The Marshall Mathers LP 2'. The song discusses themes of fame, relationships, and the pressures of being in the public eye.",
@@ -31,7 +31,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_4.pdf",
-    "number": "a1",
+    "number": "4",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Alan Jackson",
     "Definition": "Alan Jackson is an American country music singer, known for his neotraditional country style and his contribution to the genre with numerous hit songs and albums.",
@@ -41,7 +41,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_5.pdf",
-    "number": "a1",
+    "number": "5",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Dell Stock",
     "Definition": "Dell stock refers to the publicly traded shares of Dell Technologies Inc., a multinational technology company that develops, sells, repairs, and supports computers and related products and services.",
@@ -51,7 +51,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_6.pdf",
-    "number": "a1",
+    "number": "6",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Janitor AI",
     "Definition": "Janitor AI refers to an artificial intelligence system designed to perform maintenance or cleaning tasks, often in a digital environment. It can also metaphorically refer to AI that manages and organizes data or systems to keep them running smoothly.",
@@ -61,7 +61,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_6.pdf",
-    "number": "a1",
+    "number": "7",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Viggle AI",
     "Definition": "Viggle AI, if hypothetical, could refer to an artificial intelligence system designed for a specific purpose, such as managing user engagement or optimizing user experience in an interactive platform or application.",
@@ -71,7 +71,7 @@ export const allVideoList = [
   },
   {
     "fileName":"FrayerModel_6.pdf",
-    "number": "a1",
+    "number": "8",
     "prompt": "AI's Frayer Model Diagram",
     "Concept": "Crushon AI",
     "Definition": "Crushon AI, if hypothetical, could refer to an artificial intelligence system designed to simulate or analyze human emotions, particularly those related to affection or attraction, in various applications such as social robotics, recommendation systems, or mental health support.",

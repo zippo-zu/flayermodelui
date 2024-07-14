@@ -1,14 +1,16 @@
 'use client'
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
+
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
-import { useState } from "react";
-import { randomVideo } from "~/data/openaiVideo";
+// import { randomVideo } from "~/data/openaiVideo";
 import HeadInfo from "~/components/HeadInfo";
-import { useCommonContext } from "~/context/common-context";
+// import { useCommonContext } from "~/context/common-context";
 import Link from "next/link";
-import FrayerModel from "~/components/FrayerModel";
-import { allVideoList } from "~/data/frayerModelTemplate";
+import FrayerModel2 from "~/components/FrayerModel2";
+// import { allVideoList } from "~/data/frayerModelTemplate";
+import { FrayerModel } from "~/types/FrayerModel";
 
 
 const PageComponent = ({
@@ -17,69 +19,32 @@ const PageComponent = ({
   initVideoList = [],
   questionText
 }) => {
-  const router = useRouter();
+      const [allVideoList, setallVideoList] = useState([]);
 
-  const [textStr, setTextStr] = useState('');
-  const { setShowGeneratingModal, setShowLoadingModal } = useCommonContext();
+
+       // let allVideoList :FrayerModel[]=[];
+
+        const  getFrayerList = async () => {
+          const baseUrl = process.env.BASE_URL || "http://localhost"; // 请确保设置了基础 URL
+          console.log("base log--",baseUrl);
+          const response =  await fetch(`/${locale}/api/getmodellist?pagesize=4`, { method: "GET" });
+          const result =await response.json();
+          
+          if (result.code ===0){
+            const data: FrayerModel[] = result.data;
+           // allVideoList=data;
+           setallVideoList(data);
+            console.log(result.data);
+          }
+          console.log("******* :",JSON.stringify(allVideoList))
+        }
+        useEffect(() => {getFrayerList()},[]);
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    setChooseAPI('FakeSora');
-    if (!textStr) {
-      setVideoList(randomVideo(2));
-      return;
-    }
-    setShowGeneratingModal(true);
-    const body = {
-      prompt: textStr
-    };
-    const response = await fetch(`/${locale}/api/generate`, {
-      method: 'POST',
-      body: JSON.stringify(body)
-    })
-    const result = await response.json();
-    setShowGeneratingModal(false);
-    if (result.data) {
-      if (!result.data[0].revised_prompt) {
-        return
-      }
-      const video = {
-        revised_prompt: result.data[0].revised_prompt,
-        url: result.data[0].url
-      }
 
-      // add storage
-      const videoHistoryListStr = localStorage.getItem('videoHistoryList');
-      if (!videoHistoryListStr) {
-        const videoHistoryList = [];
-        videoHistoryList.unshift(video);
-        localStorage.setItem('videoHistoryList', JSON.stringify(videoHistoryList));
-      } else {
-        const videoHistoryList = JSON.parse(videoHistoryListStr);
-        // check exist
-        let exist = false;
-        for (let i = 0; i < videoHistoryList.length; i++) {
-          const videoHistory = videoHistoryList[i];
-          if (videoHistory.revised_prompt == video.revised_prompt) {
-            exist = true;
-            localStorage.setItem('video', JSON.stringify(video));
-            router.push(`/${locale}/playground`)
-            return;
-          }
-        }
-        if (!exist) {
-          videoHistoryList.unshift(video);
-          // const newList = videoHistoryList.slice(0, 3);
-          localStorage.setItem('videoHistoryList', JSON.stringify(videoHistoryList));
-        }
-      }
-      localStorage.setItem('video', JSON.stringify(video));
-      router.push(`/${locale}/playground`)
-    }
   }
 
-  const [videoList, setVideoList] = useState(initVideoList);
 
   const handleMouseEnter = (event) => {
     event.target.play();
@@ -89,7 +54,6 @@ const PageComponent = ({
     event.target.pause();
   };
 
-  const [chooseAPI, setChooseAPI] = useState('FakeSora');
 
   return (
     <>
@@ -129,8 +93,8 @@ const PageComponent = ({
                     <div key={file.prompt}>
                       <div
                         className="rounded-xl flex justify-center items-start">
-                        <FrayerModel fileName={file.fileName} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
-                          noExamples={file.NonExamples}
+                        <FrayerModel2 prompt={file.prompt} vocal={file.Concept} fileName={file.fileName} Definition={file.Definition} Characteristics={file.Characteristics} Examples={file.Examples}
+                          noExamples={file.NonExamples} number={file.number} lang={locale} 
                         />
                       </div>
 

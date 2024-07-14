@@ -33,7 +33,7 @@ const HeadInfo = ({
             href = `${process.env.NEXT_PUBLIC_SITE_URL}${currentPage}`;
           }
           if (locale == item.lang) {
-            return <link key={href + 'canonical'} rel="canonical" hrefLang={hrefLang} href={href}/>
+            return <link key={href + 'canonical'} rel="" hrefLang={hrefLang} href={href}/>
           }
         })
       }

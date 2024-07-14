@@ -1,7 +1,21 @@
-export const allVideoList = [
+interface FrayerModel {
+    fileName: string;
+    number: string;
+    prompt: string;
+    Concept: string;
+    Definition: string;
+    Characteristics: string;
+    Examples: string;
+    NonExamples: string;
+}
+
+
+
+
+export const allVideoList :FrayerModel[] = [
     {
         "fileName":"FrayerModel_1.pdf",
-        "number": "a1",
+        "number": "1",
         "prompt": "Frayer Model Template",
         "Concept": "Frayer Model Template",
         "Definition": "The Frayer Model Template is a tool used to organize information about a concept into four categories: Definition, Characteristics, Examples, and Non-Examples. It helps in understanding and remembering complex ideas by providing a structured approach to learning.",
@@ -12,7 +26,7 @@ export const allVideoList = [
     {
         "fileName":"FrayerModel_2.pdf",
 
-        "number": "a1",
+        "number": "2",
         "prompt": "弗雷模型图",
         "Concept": "Frayer模型模板",
         "Definition": "Frayer模型模板是一种用于将概念的信息组织成四个类别的工具：定义、特征、例子和非例子。它通过提供结构化的学习方法，帮助理解和记忆复杂的概念。",
@@ -22,7 +36,7 @@ export const allVideoList = [
     }, {
         "fileName":"FrayerModel_3.pdf",
 
-        "number": "a1",
+        "number": "3",
         "prompt": "AIのフライヤーモデル図",
         "Concept": "Frayerモデルテンプレート",
         "Definition": "Frayerモデルテンプレートは、概念に関する情報を定義、特徴、例、非例の4つのカテゴリーに整理するためのツールです。これは学習のための構造化されたアプローチを提供し、複雑な概念を理解し記憶するのに役立ちます。",
@@ -32,7 +46,7 @@ export const allVideoList = [
     },
     {
         "fileName":"FrayerModel_4.pdf",
-        "number": "a1",
+        "number": "4",
         "prompt": "AI의 프레이어 모델 그림",
         "Concept": "Frayer 모델 템플릿",
         "Definition": "Frayer 모델 템플릿은 개념에 대한 정보를 정의, 특성, 예시, 비예시의 네 가지 범주로 구성하는 도구입니다. 이는 학습을 위한 구조화된 접근 방식을 제공하여 복잡한 개념을 이해하고 기억하는 데 도움이 됩니다.",
@@ -57,3 +71,14 @@ export const randomVideo = (count: number) => {
     }
     return resultVideoList;
 }
+
+export   function  findFrayerModel(frayerModelList :FrayerModel[],num:string) :FrayerModel | undefined {
+        let  fr  =frayerModelList.find(frayermodel=>frayermodel.number===num);   
+        return fr;
+}
+    
+
+
+
+
+
