@@ -4,7 +4,8 @@ import Link from "next/link";
 const navigation = {
   product: [
     { name: 'Airegex', href: 'https://airegex.cn' },
-    { name: 'xbt', href: 'https://5xbt.org/' }
+    { name: 'xbt', href: 'https://5xbt.org/' },
+    { name: 'curl calculator', href: 'https://curlcalculator.com/' }
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
